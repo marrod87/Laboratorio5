@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/newClass.o \
+	${OBJECTDIR}/newfile.o \
 	${OBJECTDIR}/welcome.o
 
 
@@ -61,6 +63,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/welcome_1: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/welcome_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/newClass.o: newClass.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/newClass.o newClass.cpp
+
+${OBJECTDIR}/newfile.o: newfile.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/newfile.o newfile.cpp
 
 ${OBJECTDIR}/welcome.o: welcome.cc 
 	${MKDIR} -p ${OBJECTDIR}
